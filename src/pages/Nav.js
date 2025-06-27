@@ -3,19 +3,19 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../api/axios';
 import { FaUser, FaFile } from 'react-icons/fa';
 
-// Sidebar icon helper
+// Sidebar icon
 function getIcon(iconName) {
   switch (iconName) {
     case 'user': return <FaUser />;
     case 'file': return <FaFile />;
-    default: return '📄';
+    default: return '📋';
   }
 }
 
 const Nav = () => {
   const [menus, setMenus] = useState([]);
 
-  // Fetch menus
+
   useEffect(() => {
     axiosInstance.get('/api/menu')
       .then((res) => {
@@ -33,7 +33,7 @@ const Nav = () => {
       padding: '20px',
       boxShadow: '2px 0 5px rgba(0,0,0,0.1)',
     }}>
-      {/* Menu Header - Clickable link */}
+      {/* Menu Header */}
       <h3>
         <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
           Menu
